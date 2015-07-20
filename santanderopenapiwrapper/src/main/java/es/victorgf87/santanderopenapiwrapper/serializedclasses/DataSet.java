@@ -12,22 +12,6 @@ import java.util.List;
 public class DataSet
 {
     @SerializedName("summary")Summary summary;
-    @SerializedName("resources")List<LinkedTreeMap<String,String>>resources;//List<LinkedTreeMap<String,String>> resources;
+    @SerializedName("resources")List<DataSetResource>resources;//List<LinkedTreeMap<String,String>> resources;
 
-
-
-
-    private String getResourceByName(String name)
-    {
-        String ret=null;
-        for(LinkedTreeMap<String,String>resource: resources)
-        {
-            if(resource.get("name").equals(name))
-            {
-                ret= resource.get("value");
-                break;
-            }
-        }
-        return ret;
-    }
 }
