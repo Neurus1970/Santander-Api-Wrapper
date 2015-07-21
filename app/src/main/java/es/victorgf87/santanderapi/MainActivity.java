@@ -43,7 +43,9 @@ public class MainActivity extends ActionBarActivity
             {
 
                 SantanderAPI bla=new SantanderAPI();
-                bla.getCollection("agenda_cultural");
+                bla.getCollection("agenda_cultural").getMetadataList().bla();
+                int a=3;
+                int b=a;
 
 
             }

@@ -6,6 +6,7 @@ import es.victorgf87.santanderopenapiwrapper.apiclasses.SantanderService;
 import es.victorgf87.santanderopenapiwrapper.factories.AdapterFactory;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSet;
+import es.victorgf87.santanderopenapiwrapper.serializedclasses.Kollektion;
 
 /**
  * Created by V�ctor on 14/07/2015.
@@ -21,13 +22,20 @@ public class SantanderAPI
         return obj;
     }
 
-    public CollectionsList getCollection(String collection_id)
+    public DataSet getCollectionDataSet(String collection_id)
     {
         SantanderService service = AdapterFactory.createSantanderService();
 
-        DataSet obj = service.getCollection(collection_id);
+        DataSet obj = service.getCollectionDataSet(collection_id);
 
-        return null;
+        return obj;
+    }
+
+    public Kollektion getCollection(String collection_id)
+    {
+        SantanderService service=AdapterFactory.createSantanderService();
+        Kollektion obj=service.getCollection(collection_id);
+        return obj;
     }
 
 
