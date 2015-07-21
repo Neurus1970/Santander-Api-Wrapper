@@ -47,7 +47,7 @@ public class MetaDataAttributeGroup
 
     public String type()
     {
-        String ret=(String)getAttributeByName("type");
+        String ret= getAttributeByName("type");
         return ret;
     }
 
@@ -60,13 +60,13 @@ public class MetaDataAttributeGroup
 
     public String name()
     {
-        String ret=(String)getAttributeByName("name");
+        String ret= getAttributeByName("name");
         return ret;
     }
 
     public String rule()
     {
-        String ret=(String)getAttributeByName("rule");
+        String ret= getAttributeByName("rule");
         return ret;
     }
 

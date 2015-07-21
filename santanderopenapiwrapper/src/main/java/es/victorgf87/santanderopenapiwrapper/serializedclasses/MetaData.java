@@ -155,6 +155,11 @@ public class MetaData
     }
 
 
+    /**
+     * Helper method, searches for the group with given name
+     * @param id
+     * @return
+     */
     private MetaDataAttributeGroup getGroupByName(String id)
     {
         MetaDataAttributeGroup ret=null;

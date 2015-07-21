@@ -4,6 +4,8 @@ import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSet;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.Kollektion;
 import retrofit.http.GET;
+import retrofit.http.Header;
+import retrofit.http.Headers;
 import retrofit.http.Path;
 
 /**
@@ -16,15 +18,17 @@ public interface SantanderService
      * Returns default collections set. By default it will return 1000 elements.
      */
     @GET("/rest/collections.json")
-    public CollectionsList getAllCollections();
+    CollectionsList getAllCollections();
 
     @GET("/rest/datasets/{collection_id}.json")
-    public DataSet getCollectionDataSet(@Path("collection_id") String collection_id);
+    DataSet getCollectionDataSet(@Path("collection_id") String collection_id);
 
     @GET("/rest/collections/{collection_id}.json")
-    public Kollektion getCollection(@Path("collection_id")String collection_id);
+    Kollektion getCollection(@Path("collection_id") String collection_id);
 
 
+    @GET("/rest/datasets/{collection_id}/{resource_id}.json")
+    DataSet getResourceFromCollection(@Path("collection_id") String collection_id, @Path("resource_id") String resource_id);
 
 
 

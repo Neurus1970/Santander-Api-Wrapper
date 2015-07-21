@@ -43,13 +43,6 @@ public class MainActivity extends ActionBarActivity
             public void run()
             {
 
-                SantanderAPI bla=new SantanderAPI();
-                MetaDataAttributeGroup attrs=bla.getCollection("agenda_cultural").getMetadataList().icms_identifier();
-                Boolean boo=attrs.isRequired();
-                int a=3;
-                int b=a;
-
-
             }
         });
     }

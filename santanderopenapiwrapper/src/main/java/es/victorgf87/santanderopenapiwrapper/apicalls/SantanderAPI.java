@@ -1,6 +1,7 @@
 package es.victorgf87.santanderopenapiwrapper.apicalls;
 
 import android.support.annotation.WorkerThread;
+import android.widget.Adapter;
 
 import es.victorgf87.santanderopenapiwrapper.apiclasses.SantanderService;
 import es.victorgf87.santanderopenapiwrapper.factories.AdapterFactory;
@@ -36,6 +37,13 @@ public class SantanderAPI
         SantanderService service=AdapterFactory.createSantanderService();
         Kollektion obj=service.getCollection(collection_id);
         return obj;
+    }
+
+    public DataSet getResourceFromCollection(String collection_id, String resource_id)
+    {
+        SantanderService service= AdapterFactory.createSantanderService();
+        DataSet ret=service.getResourceFromCollection(collection_id,resource_id);
+        return ret;
     }
 
 
