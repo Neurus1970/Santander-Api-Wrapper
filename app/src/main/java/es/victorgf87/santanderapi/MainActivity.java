@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import es.victorgf87.santanderopenapiwrapper.apicalls.SantanderAPI;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.Kollektion;
+import es.victorgf87.santanderopenapiwrapper.serializedclasses.MetaDataAttributeGroup;
 
 
 public class MainActivity extends ActionBarActivity
@@ -43,7 +44,8 @@ public class MainActivity extends ActionBarActivity
             {
 
                 SantanderAPI bla=new SantanderAPI();
-                bla.getCollection("agenda_cultural").getMetadataList().bla();
+                MetaDataAttributeGroup attrs=bla.getCollection("agenda_cultural").getMetadataList().icms_identifier();
+                Boolean boo=attrs.isRequired();
                 int a=3;
                 int b=a;
 

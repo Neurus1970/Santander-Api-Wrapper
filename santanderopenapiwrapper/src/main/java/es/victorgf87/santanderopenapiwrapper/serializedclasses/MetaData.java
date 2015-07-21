@@ -11,17 +11,35 @@ import java.util.List;
  */
 public class MetaData
 {
-    @SerializedName("Metadata")private List<LinkedTreeMap<String,Object>> metaData;
-    
+    @SerializedName("Metadata")private List<MetaDataAttributeGroup> metaData;
 
-    public void bla()
+    public List<MetaDataAttributeGroup> getMetaData()
     {
-        Object keys=metaData.get(0).keySet();
-        Object values=metaData.get(0).values();
-        Object obj=metaData.get(0).entrySet();
+        return metaData;
+    }
 
-        String klas=obj.getClass().toString();
-        int a=3;
-        int b=a;
+    //icms:identifier
+    public MetaDataAttributeGroup icms_identifier()
+    {
+        MetaDataAttributeGroup ret=getGroupByName("icms:identifier");
+        return ret;
+    }
+
+    private MetaDataAttributeGroup getGroupByName(String id)
+    {
+        MetaDataAttributeGroup ret=null;
+        int i=0;
+        boolean found=false;
+        while(i<metaData.size() && !found)
+        {
+            MetaDataAttributeGroup current=metaData.get(i);
+            if(current.getName().equals(id))
+            {
+                found=true;
+                ret=current;
+            }
+            i++;
+        }
+        return ret;
     }
 }
