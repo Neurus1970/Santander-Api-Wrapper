@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class DataSetResource
 {
+    //TODO this is not working
     public String getDc_modified() {
         return dc_modified;
     }
@@ -43,4 +44,10 @@ public class DataSetResource
     @SerializedName("ayto:alt-name")private String ayto_alt_name;
     @SerializedName("ayto:datetime")private String ayto_datetime;
     @SerializedName("dc:description")private String dc_description;
+
+    public String getDc_name() {
+        return dc_name;
+    }
+
+    @SerializedName("dc:name")private String dc_name;
 }

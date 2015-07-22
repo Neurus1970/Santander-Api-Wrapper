@@ -14,4 +14,11 @@ public class DataSet
     @SerializedName("summary")Summary summary;
     @SerializedName("resources")List<DataSetResource>resources;//List<LinkedTreeMap<String,String>> resources;
 
+    public Summary getSummary() {
+        return summary;
+    }
+
+    public List<DataSetResource> getResources() {
+        return resources;
+    }
 }
