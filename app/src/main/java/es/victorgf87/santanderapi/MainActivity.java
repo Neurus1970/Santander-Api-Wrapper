@@ -11,6 +11,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import es.victorgf87.santanderopenapiwrapper.apicalls.SantanderAPI;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
@@ -46,32 +50,28 @@ public class MainActivity extends ActionBarActivity
             public void run()
             {
                 SantanderAPI api=new SantanderAPI();
-                CollectionsList collections=api.getAllCollections();
-                String collectionsString="";
-                String carril_biciString="";
-                for(Kollektion kol: collections.getCollections())
-                {
-                    collectionsString+=kol.toString()+"\n\n";
-                }
-                final String finalStr = collectionsString;
+                String show="";
+                /////////////
 
 
-                DataSet carril_bici=api.getCollectionDataSet("agenda_cultural");
-                for(DataSetResource res:carril_bici.getResources())
+                CollectionsList list=api.getAllCollections();
+                final List<String> ids=new LinkedList<String>();
+                for(Kollektion kol: list.getCollections())
                 {
-                    carril_biciString+="<b>Nombre:</b><br/>"+res.getDc_name()+"\n\n";
-                    carril_biciString+=res.getDc_description()+"\n\n";
+                    ids.add(kol.getId());
                 }
 
-                Kollektion kolDataBici=api.getCollection("carril_bici");
 
-                final String finalCarril_biciString = carril_biciString;
 
-                Spanned sp=Html.fromHtml(finalCarril_biciString);
+
+                /////////////
+                final String finalShow = show;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        text.setText(Html.fromHtml(finalCarril_biciString + "\n\n--------------\n\n" + finalStr));
+                        //text.setText(Html.fromHtml(finalCarril_biciString + "\n\n--------------\n\n" + finalStr));
+                        text.setText(ids.toString());
+
                     }
                 });
 
