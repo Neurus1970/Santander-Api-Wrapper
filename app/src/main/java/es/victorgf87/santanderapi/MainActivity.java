@@ -11,12 +11,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
 import es.victorgf87.santanderopenapiwrapper.apicalls.SantanderAPI;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSet;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSetResource;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.Kollektion;
+import es.victorgf87.santanderopenapiwrapper.serializedclasses.MetaData;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.MetaDataAttributeGroup;
 
 
@@ -47,31 +50,29 @@ public class MainActivity extends ActionBarActivity
             {
                 SantanderAPI api=new SantanderAPI();
                 CollectionsList collections=api.getAllCollections();
-                String collectionsString="";
-                String carril_biciString="";
-                for(Kollektion kol: collections.getCollections())
+                String strIds="";
+
+                MetaData metaData=api.getCollection("alojamientos_hosteleros").getMetadataList();
+                List<String> metadataids=metaData.getMetaDataGroupNames();
+
+                /*for(Kollektion kol: collections.getCollections())
                 {
-                    collectionsString+=kol.toString()+"\n\n";
-                }
-                final String finalStr = collectionsString;
+                    strIds+=kol.getId()+"\n";
+                }*/
 
+                strIds="";
 
-                DataSet carril_bici=api.getCollectionDataSet("agenda_cultural");
-                for(DataSetResource res:carril_bici.getResources())
+                for(String str:metadataids)
                 {
-                    carril_biciString+="<b>Nombre:</b><br/>"+res.getDc_name()+"\n\n";
-                    carril_biciString+=res.getDc_description()+"\n\n";
+                    strIds+=str+":"+metaData.getGroupByName(str)+"\n";
                 }
 
-                Kollektion kolDataBici=api.getCollection("carril_bici");
 
-                final String finalCarril_biciString = carril_biciString;
-
-                Spanned sp=Html.fromHtml(finalCarril_biciString);
+                final String finalStrIds = strIds;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        text.setText(Html.fromHtml(finalCarril_biciString + "\n\n--------------\n\n" + finalStr));
+                        text.setText(finalStrIds);
                     }
                 });
 

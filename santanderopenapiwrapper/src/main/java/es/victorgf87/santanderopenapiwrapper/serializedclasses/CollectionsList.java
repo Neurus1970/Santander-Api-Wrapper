@@ -6,12 +6,14 @@ import com.google.gson.internal.LinkedTreeMap;
 import java.util.List;
 
 /**
+ * Class containing a list of collections.
+ *
  * Created by Víctor on 15/07/2015.
  */
 public class CollectionsList
 {
-    @SerializedName("summary")private Summary summary;
-    @SerializedName("listCollections")private LinkedTreeMap<String,List<Kollektion>> collections;
+    @SerializedName("summary")private Summary summary; //A request contains a summary
+    @SerializedName("listCollections")private LinkedTreeMap<String,List<Kollektion>> collections;//List of collections
     @SerializedName("resources")Object resources;
 
     public List<Kollektion>getCollections()
