@@ -4,23 +4,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
-import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.List;
-
-import butterknife.ButterKnife;
 import es.victorgf87.santanderopenapiwrapper.apicalls.SantanderAPI;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.CollectionsList;
-import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSet;
-import es.victorgf87.santanderopenapiwrapper.serializedclasses.DataSetResource;
 import es.victorgf87.santanderopenapiwrapper.serializedclasses.Kollektion;
-import es.victorgf87.santanderopenapiwrapper.serializedclasses.MetaData;
-import es.victorgf87.santanderopenapiwrapper.serializedclasses.MetaDataAttributeGroup;
 
 
 public class MainActivity extends ActionBarActivity
@@ -49,6 +39,7 @@ public class MainActivity extends ActionBarActivity
             public void run()
             {
                 SantanderAPI api=new SantanderAPI();
+
 
                 String strIds="";
 
