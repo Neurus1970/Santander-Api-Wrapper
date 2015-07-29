@@ -49,23 +49,14 @@ public class MainActivity extends ActionBarActivity
             public void run()
             {
                 SantanderAPI api=new SantanderAPI();
-                CollectionsList collections=api.getAllCollections();
+
                 String strIds="";
 
-                MetaData metaData=api.getCollection("alojamientos_hosteleros").getMetadataList();
-                List<String> metadataids=metaData.getMetaDataGroupNames();
+                Kollektion lineas_bus=api.getCollection("lineas_bus");
 
-                /*for(Kollektion kol: collections.getCollections())
-                {
-                    strIds+=kol.getId()+"\n";
-                }*/
 
-                strIds="";
 
-                for(String str:metadataids)
-                {
-                    strIds+=str+":"+metaData.getGroupByName(str)+"\n";
-                }
+
 
 
                 final String finalStrIds = strIds;
@@ -90,7 +81,8 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
